@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+
+<div class=index>
+
+<h1>All index!</h1>
+
+{% block content %}
+    
+</div>
+
+<div class=teams-all>
+<h2>take your pick!</h2>
+{% for team in teams%}
+
+    <ul>
+        <li> {{team.name}}</li>
+        <li>top lane: {{team.top}}</li>
+        <li>jungle: {{team.jg}}</li>
+        <li>mid lane: {{team.mid}}</li>
+       <li>bot lane: {{team.bot}}</li>
+       <li>support: {{team.sup}}</li>
+    </ul>
+
+{% endfor %}
+
+</div>
+{% endblock content %}
