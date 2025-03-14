@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Team
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.http import HttpResponse
 
 
@@ -36,3 +36,19 @@ def about(request):
 def index(request):
     teams = Team.objects.all()
     return render(request, 'teams/index.html', {'teams':teams})
+
+def detail(request, team_id):
+    team = Team.objects.get(id=team_id)
+    return render(request, 'teams/team-detail.html', {'team':team})
+    
+class TeamCreate(CreateView):
+    model = Team
+    fields = '__all__'
+    pk_url_kwarg = 'team_id'
+    
+    
+class TeamDelete(DeleteView):
+    model = Team
+    pk_url_kwarg = 'team_id'
+    success_url = '/teams/'
+    fields = '__all__'

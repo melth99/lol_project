@@ -1,8 +1,17 @@
 {% extends "base.html" %} 
 
-<div class=about>
 
+{% block content %}
+    
+
+    
+<div class='about'>
 <h1>All about!</h1>
 
+<div class='links'></div>
+<ul>
+    <li><a href="{% url 'index'%}"> Lets See all teams!</a></li>
+</ul>
 </div>
 
+{% endblock content%}
