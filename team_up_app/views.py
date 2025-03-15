@@ -43,7 +43,7 @@ class TeamList(ListView):
 
 def detail(request, team_id):
     team = Team.objects.get(id=team_id)
-    return render(request, 'teams/team-detail.html', {'team':team})
+    return render(request, 'teams/team_detail.html', {'team':team})
     
 class TeamCreate(CreateView):
     model = Team
