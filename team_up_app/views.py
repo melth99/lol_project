@@ -39,6 +39,7 @@ def about(request):
     return render(request, 'index.html', {'teams':teams}) """
 class TeamList(ListView):
     model = Team
+
     
 
 def detail(request, team_id):
