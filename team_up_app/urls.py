@@ -14,7 +14,7 @@ urlpatterns = [
     path('teams/', views.TeamList.as_view(), name= 'team-list'),
     path('teams/create/', views.TeamCreate.as_view(), name='team-form'),
     path('teams/<int:team_id>/', views.detail, name='team-detail'),
-    #path('teams/<int:team_id>/edit/', views.detail, name='detail')
-    #path('teams/<int:team_id>/delete', views.detail, name='detail')
+    #path('teams/<int:team_id>/edit/', views.detail, name='detail'),
+    path('teams/<int:team_id>/delete', views.TeamDelete.as_view(), name='team-delete')
     
 ]

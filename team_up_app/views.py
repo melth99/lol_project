@@ -3,6 +3,7 @@ from .models import Team
 from django.views.generic.edit import CreateView, DeleteView
 from django.http import HttpResponse
 from django.views.generic import ListView
+from django.urls import reverse_lazy
 
 
 # Import HttpResponse to send text-based responses
@@ -54,5 +55,5 @@ class TeamCreate(CreateView):
     
 class TeamDelete(DeleteView):
     model = Team
-    #pk_url_kwarg = 'team_id'
+    pk_url_kwarg = 'team_id'
     success_url = '/teams/'

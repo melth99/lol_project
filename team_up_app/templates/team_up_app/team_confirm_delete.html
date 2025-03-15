@@ -14,17 +14,18 @@
   </div>
 
 
-    <form action="" method="post" class='form'>
+    <form action="" method="post" class="form-container">
         {% csrf_token %}
-    </form>
 
 <button type="submit"> Yes, I want to delete {{ team.name }}</button>
 
-<a href="{% url 'team-list' %}">
-    <button>
-    I do not want to delete {{ team.name }}!
-    </button>
-</a>
+    </form>
+    <a href="{% url 'team-list' %}">
+      <button>
+      I do not want to delete {{ team.name }}!
+      </button>
+  </a>
+
 
 
 {% endblock %}
