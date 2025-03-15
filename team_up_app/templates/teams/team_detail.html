@@ -1,23 +1,24 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
 
 {% block content %}
 
-    <h1>{{team.name}} Details!</h1>
-    <div class='detail'>
-        <div class="postions">
-            <ul>
-        <li>Top Lane: {{team.top}}</li>
-        <li>Jungle: {{team.jungle}}</li>
-        <li>Mid Lane: {{team.mid}}</li>
-        <li>Bot Lane: {{team.bot}}</li>
-        <li>Support: {{team.support}}</li>
+<h1>{{ team.name }} Details!</h1>
+
+<div class="postions">
+    <ul>
+      <li>Top Lane: {{ team.top }}</li>
+      <li>Jungle: {{ team.jungle }}</li>
+      <li>Mid Lane: {{ team.mid }}</li>
+      <li>Bot Lane: {{ team.bot }}</li>
+      <li>Support: {{ team.support }}</li>
     </ul>
-    </div>
-    <div class='modify'>
-{% comment %}       <a href="{% url 'team-update' team.id %}" class="btn warn">Edit</a> {% endcomment %}
-{% comment %} <a href="{% url 'toy-delete' team.id %}" class="btn danger">Delete</a> {% endcomment %}
-    </div>
-</div>
-<a href="{% url 'team-list'%}"> Lets See all teams!</a>
-{% endblock content %}
+  </div>
+  {% comment %} <div class="modify">
+    {% endcomment %}
+    {% comment %} <a href="{% url 'team-update' team.id %}" class="btn warn">Edit</a> {% endcomment %}
+    {% comment %} <a href="{% url 'toy-delete' team.id %}" class="btn danger">Delete</a> {% endcomment %}
+{% comment %}   </div>
+ {% endcomment %}
+  <a href="{% url 'team-list' %}">Lets See all teams!</a>
+  {% endblock %}

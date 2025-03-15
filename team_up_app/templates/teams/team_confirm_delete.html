@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Are you sure you want to delete {{ team.name }}?</h1>
+
+  <div class="postions">
+    <ul>
+      <li>Top Lane: {{ team.top }}</li>
+      <li>Jungle: {{ team.jungle }}</li>
+      <li>Mid Lane: {{ team.mid }}</li>
+      <li>Bot Lane: {{ team.bot }}</li>
+      <li>Support: {{ team.support }}</li>
+    </ul>
+  </div>
+
+
+    <form action="" method="post" class='form'>
+        {% csrf_token %}
+    </form>
+
+<button type="submit"> Yes, I want to delete {{ team.name }}</button>
+
+<a href="{% url 'team-list' %}">
+    <button>
+    I do not want to delete {{ team.name }}!
+    </button>
+</a>
+
+
+{% endblock %}

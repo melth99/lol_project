@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% block positions %}
+      <div class="postions">
+        <ul>
+          <li>Top Lane: {{ team.top }}</li>
+          <li>Jungle: {{ team.jungle }}</li>
+          <li>Mid Lane: {{ team.mid }}</li>
+          <li>Bot Lane: {{ team.bot }}</li>
+          <li>Support: {{ team.support }}</li>
+        </ul>
+      </div>
+    {% endblock %}
+  </body>
+</html>

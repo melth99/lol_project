@@ -54,6 +54,5 @@ class TeamCreate(CreateView):
     
 class TeamDelete(DeleteView):
     model = Team
-    pk_url_kwarg = 'team_id'
-    #success_url = '/teams/'
-    fields = '__all__'
+    #pk_url_kwarg = 'team_id'
+    success_url = '/teams/'

@@ -19,7 +19,9 @@
        <li>bot lane: {{team.bot}}</li>
        <li>support: {{team.support}}</li>
     </ul>
-
+<a href="{% url 'team-detail' team.id %}">
+    <button>Lets get a closer look!</button>
+</a>
 {% endfor %}
 
 </div>
