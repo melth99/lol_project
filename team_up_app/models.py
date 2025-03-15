@@ -22,3 +22,8 @@ class Team(models.Model):
     def __str__(self):
         return self.name #
     
+    def get_absolute_url(self):
+        # Use the 'reverse' function to dynamically find the URL for viewing this cat's details
+        return reverse('team-detail', kwargs={'cat_id': self.id})
+    
+    

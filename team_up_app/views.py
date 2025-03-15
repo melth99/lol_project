@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import Team
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.http import HttpResponse
+from django.views.generic import ListView
 
 
 # Import HttpResponse to send text-based responses
@@ -33,9 +34,12 @@ def about(request):
     return render(request, 'about.html')
     #return HttpResponse('<h1>about</h1>')
 
-def index(request):
+""" def index(request):
     teams = Team.objects.all()
-    return render(request, 'teams/index.html', {'teams':teams})
+    return render(request, 'index.html', {'teams':teams}) """
+class TeamList(ListView):
+    model = Team
+    
 
 def detail(request, team_id):
     team = Team.objects.get(id=team_id)
@@ -50,5 +54,5 @@ class TeamCreate(CreateView):
 class TeamDelete(DeleteView):
     model = Team
     pk_url_kwarg = 'team_id'
-    success_url = '/teams/'
+    #success_url = '/teams/'
     fields = '__all__'

@@ -11,7 +11,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-    path('teams/', views.index, name= 'index'),
+    path('teams/', views.TeamList.as_view(), name= 'team-list'),
     path('teams/create/', views.TeamCreate.as_view(), name='team-form'),
     path('teams/<int:team_id>/', views.detail, name='team-detail'),
     #path('teams/<int:team_id>/edit/', views.detail, name='detail')
