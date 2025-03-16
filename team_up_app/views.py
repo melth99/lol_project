@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Team
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.http import HttpResponse
 from django.views.generic import ListView
 from django.urls import reverse_lazy
@@ -42,7 +42,6 @@ class TeamList(ListView):
     model = Team
 
     
-
 def detail(request, team_id):
     team = Team.objects.get(id=team_id)
     return render(request, 'teams/team_detail.html', {'team':team})
@@ -57,3 +56,12 @@ class TeamDelete(DeleteView):
     model = Team
     pk_url_kwarg = 'team_id'
     success_url = '/teams/'
+    
+    
+class TeamUpdate(UpdateView):
+    model = Team
+    fields = '__all__'
+    pk_url_kwarg = 'team_id'
+    template_name = './team_up_app/team_form.html'
+    success_url = '/teams/'
+    

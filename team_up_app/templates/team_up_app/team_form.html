@@ -1,10 +1,23 @@
 {% extends 'base.html' %} 
+
 {% block content %}
 
-<div class="page-header">
-  <h1>New Team?</h1>
-</div>
 
+{% if object %}
+<h1>Edit Team</h1>
+
+ {% comment %}  <div class="postions">
+    <ul>
+      <li>Top Lane: {{ object.top }}</li>
+      <li>Jungle: {{ object.jungle }}</li>
+      <li>Mid Lane: {{ object.mid }}</li>
+      <li>Bot Lane: {{ object.bot }}</li>
+      <li>Support: {{ object.support }}</li>
+    </ul>
+ {% endcomment %}
+    {% else %}
+<h1>New Team!</h1>
+{% endif %}
 <form action="" method="post" class="form-container">
   {% csrf_token %}
   <table>

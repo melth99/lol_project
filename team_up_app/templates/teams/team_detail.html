@@ -22,4 +22,8 @@
   <a href="{% url 'team-list' %}"><button>Lets See all teams</button></a>
 
   <a href="{% url 'team-delete' team.id %}"><button>Do you want to delete?</button></a>
+
+
+<a href="{% url 'team-update' team.id %}"><button>Do you want to make changes?</button></a>
+
 {% endblock %}
