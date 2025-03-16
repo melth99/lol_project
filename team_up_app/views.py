@@ -4,6 +4,8 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.http import HttpResponse
 from django.views.generic import ListView
 from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView
+
 
 
 # Import HttpResponse to send text-based responses
@@ -65,3 +67,5 @@ class TeamUpdate(UpdateView):
     template_name = './team_up_app/team_form.html' #teamplate name needs to be address! within template folder!
     success_url = '/teams/'
     
+
+#auth
