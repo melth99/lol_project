@@ -62,6 +62,6 @@ class TeamUpdate(UpdateView):
     model = Team
     fields = '__all__'
     pk_url_kwarg = 'team_id'
-    template_name = './team_up_app/team_form.html'
+    template_name = './team_up_app/team_form.html' #teamplate name needs to be address! within template folder!
     success_url = '/teams/'
     
