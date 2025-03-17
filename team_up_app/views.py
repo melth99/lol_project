@@ -1,11 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Team
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.http import HttpResponse
 from django.views.generic import ListView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
-
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required # function based views
+from django.contrib.auth.mixins import LoginRequiredMixin # for CBVS
 
 
 # Import HttpResponse to send text-based responses
@@ -13,7 +16,7 @@ from django.contrib.auth.views import LoginView
     def __init__(self,name,mid,top,bot,sup,jg):
         self.name = name
         self.mid = mid
-        self.top = top
+        self.top = top]
         self.bot = bot
         self.jg = jg
         self.sup = sup
@@ -28,10 +31,10 @@ teams = [
 
 # Define the home view function
 
-
+""" 
 def home(request):
     # Send a simple HTML response
-    return HttpResponse('<h1>Home sweet home</h1>')
+    return HttpResponse('<h1>Home sweet home</h1>') """
 
 def about(request):
     return render(request, 'about.html')
@@ -69,3 +72,23 @@ class TeamUpdate(UpdateView):
     
 
 #auth
+
+class About(LoginView): #home 
+    template_name='about.html'
+    
+
+def signup(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid:
+            user = form.save() #saves new user to database
+            login(request,user)
+            return redirect('team_list') #appears different bc user if/else
+        else:
+            error_message = 'Please try again :('
+    else:
+        form = UserCreationForm()  # Create an empty form for GET requests
+
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'signup.html', context)

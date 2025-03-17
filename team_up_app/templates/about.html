@@ -5,13 +5,27 @@
     
 
     
-<div class='about'>
+
 <h1>All about!</h1>
 
-<div class='links'></div>
+
 <ul>
     <li><a href="{% url 'team-list' %}"> Lets See all teams!</a></li>
 </ul>
-</div>
 
-{% endblock content%}
+{%if not user.is_authenticated %}
+<section>
+    <form action="{% url 'about' %}" method="post" class="login">
+      <h1>Login</h1>
+      {% csrf_token %} {{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}" />
+      <button type="submit" class="btn submit">Login</button>
+    </form>
+   <a href="{% url 'signup' %}"><button>
+    Oh I need to make an account!
+   </button></a>
+</section>
+{% endif %} 
+  
+  
+{% endblock content %}

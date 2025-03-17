@@ -16,7 +16,14 @@
         <li><a href="{% url 'index'%}"> Lets See all teams!</a></li>
         <li><a href="{% url 'about'%}"> About Page!</a></li>
         {% endblock content %}
-            
+        
+        {% if user.is_authenticated %}
+        <form id="logout-form" method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit">Log out</button>
+        </form>
+        {% endif %}
+          
 
     </div>
   </body>
