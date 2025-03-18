@@ -2,9 +2,20 @@
 {% load static %}
 
 {% block content %}
+v
 <span class="header-title"
-  <h2> {{ team.name }} Details! </h2>
+  <h2>{{ team.name }} Here is your team! </h2>
 </span>
+
+<div class="img-bundle">
+
+  <img src="{% static 'images/champion/' %}{{ team.top }}.png" alt="{{ team.top }}">
+  <img src="{% static 'images/champion/' %}{{ team.jungle }}.png" alt="{{ team.jungle }}">
+  <img src="{% static 'images/champion/' %}{{ team.mid }}.png" alt="{{ team.mid }}">
+  <img src="{% static 'images/champion/' %}{{ team.bot }}.png" alt="{{ team.bot }}">
+  <img src="{% static 'images/champion/' %}{{ team.support }}.png" alt="{{ team.support }}">
+</div>
+
   <div class="positions">
     <ul>
       <li>Top Lane: {{ team.top }}</li>
