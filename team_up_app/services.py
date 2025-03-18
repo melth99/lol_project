@@ -39,7 +39,9 @@ class Champion():
     def __init__(self,champion_data):
         self.id = "champion.id" #name
         self.key = "champion.key" #id num
-        self.img = (f"./{self.id}_0.img")
+        #self.img = (f"./{self.id}_0.img")
+        self.img = (f"/team_up_app/static/images/champion/{self.id}.png.img")
+
     
     def __str__(self):
         return f"{self.id, self.key}

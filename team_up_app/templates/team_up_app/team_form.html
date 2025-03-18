@@ -1,14 +1,16 @@
 {% extends 'base.html' %} 
-
+{% load static %}
 {% block content %}
 
 <div class="make-readable">
 <div class="form-form">
   <div class="img-bundle">
-  <img src="....../champion/Yasuo.png" alt="Yasuo">
-  <img src="https://github.com/melth99/lol_project/blob/main/team_up_app/static/images/champion/Zed.png" alt="Fizz">
-  <img src="..../static/images/champion/Shaco.png" alt="Shaco">
-<img src="team_up_app/static/images/champion/Xayah.png" alt="Sona">
+
+    <img src="{% static 'images/champion/Yasuo.png' %}" alt="Yasuo">
+    <img src="{% static 'images/champion/Zed.png' %}" alt="Zed">
+    <img src="{% static 'images/champion/Shaco.png' %}" alt="Shaco">
+    <img src="{% static 'images/champion/Xayah.png' %}" alt="Xayah">
+  </div>
 </div>
 {% if object %}
 <h1>Edit Team</h1>
