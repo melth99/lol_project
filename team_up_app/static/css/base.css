@@ -13,9 +13,9 @@
 }
 
 body {
-    background-color: white;
-    --font-xtreme: 4.2rem;
-    --font-xxl: 3.6rem;
+    background-color: #0A1428;
+    --font-xtreme: 6rem;
+    --font-xxl: 5rem;
     --font-xl: 2.4rem;
     --font-l: 1.8rem;
     --font-reg: 1.6rem;
@@ -24,7 +24,7 @@ body {
 header {
 
     min-width: 100%;
-    background-image:url("../images/splash_art.jpg");
+    /*    background-image:url("../images/splash_art.jpg"); */
     object-fit: cover;
 }
 
@@ -32,7 +32,7 @@ header {
     display: flex;
     color: white;
     font-family: League;
-    min-height: 400px;
+    min-height: 100px;
     font-size: var(--font-xtreme);
     text-decoration: #C89B3C 10px;
     text-shadow: -2px -2px 0 #091428, 2px -2px 0 #C89B3C, -2px 2px 0 #091428, 4px 4px 0 #C89B3C;
@@ -40,10 +40,52 @@ header {
 }
 
 .log-in {
-    text-decoration: #C89B3C 10px;
-    text-shadow: -2px -2px 0 #091428, 2px -2px 0 #C89B3C, -2px 2px 0 #091428, 4px 4px 0 #C89B3C;
-    text-align: right;
+    color: #C89B3C;
+    text-align: center;
+    font-size: var(--font-xl);
+    max-width: 100%;
+    font-family: League;
 
-    
 }
 
+.page-title {
+    color: #c89b3c;
+    text-align: center;
+    max-width: 100%;
+    font-family: League;
+}
+
+.make-readable {
+
+    color: #c89b3c;
+    text-align: center;
+    max-width: 100%;
+    font-family: League;
+}
+
+.img-bundle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.form-form{
+    font-size: x-large;
+    text-align: center;
+}
+
+.positions {
+    font-size: x-large;
+    color: #c89b3c;
+    font-family: League;
+    text-align: left;
+}
+
+.soft-title{
+    color: #C89B3C;
+    text-align: center;
+    font-size: var(--font-xl);
+    max-width: 100%;
+    font-family: League;
+}

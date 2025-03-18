@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-  <h1>{{ team.name }} Details!</h1>
-
-  <div class="postions">
+<span class="header-title"
+  <h2> {{ team.name }} Details! </h2>
+</span>
+  <div class="positions">
     <ul>
       <li>Top Lane: {{ team.top }}</li>
       <li>Jungle: {{ team.jungle }}</li>

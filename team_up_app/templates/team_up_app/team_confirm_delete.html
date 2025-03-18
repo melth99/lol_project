@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<div class="soft-title">
   <h1>Are you sure you want to delete {{ team.name }}?</h1>
-
-  <div class="postions">
+</div>
+  <div class="positions">
     <ul>
       <li>Top Lane: {{ team.top }}</li>
       <li>Jungle: {{ team.jungle }}</li>
@@ -20,6 +22,7 @@
 <button type="submit"> Yes, I want to delete {{ team.name }}</button>
 
     </form>
+
     <a href="{% url 'team-list' %}">
       <button>
       I do not want to delete {{ team.name }}!

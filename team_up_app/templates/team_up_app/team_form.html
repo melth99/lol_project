@@ -2,7 +2,14 @@
 
 {% block content %}
 
-
+<div class="make-readable">
+<div class="form-form">
+  <div class="img-bundle">
+  <img src="....../champion/Yasuo.png" alt="Yasuo">
+  <img src="https://github.com/melth99/lol_project/blob/main/team_up_app/static/images/champion/Zed.png" alt="Fizz">
+  <img src="..../static/images/champion/Shaco.png" alt="Shaco">
+<img src="team_up_app/static/images/champion/Xayah.png" alt="Sona">
+</div>
 {% if object %}
 <h1>Edit Team</h1>
     {% else %}
@@ -16,4 +23,6 @@
   <button type="submit" class="btn submit">Submit!</button>
 </form>
 <a href="{% url 'about' %}"><button>I changed my mind! Get me outta here!</button></a>
+</div>
+</div>
 {% endblock %}
