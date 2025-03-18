@@ -1,1 +1,1 @@
-web: gunicorn <summoners_rift>.wsgi
+web: gunicorn summoners_rift.wsgi
