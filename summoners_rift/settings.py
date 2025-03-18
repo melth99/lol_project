@@ -54,7 +54,6 @@ MIDDLEWARE = [
     # Add this. It MUST be added after the line above: 
     "whitenoise.middleware.WhiteNoiseMiddleware",
     # Other items below
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
