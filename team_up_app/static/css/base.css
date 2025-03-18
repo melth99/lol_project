@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'League';
+    src: url('./fonts/League.otf') format('otf'),
+        url('./fonts/League.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* resets font size to be 62.5% of the user preference - 
+       in most browser configurations this will be 10px */
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: white;
+    --font-xtreme: 4.2rem;
+    --font-xxl: 3.6rem;
+    --font-xl: 2.4rem;
+    --font-l: 1.8rem;
+    --font-reg: 1.6rem;
+}
+
+header {
+
+    min-width: 100%;
+    background-image:url("../images/splash_art.jpg");
+    object-fit: cover;
+}
+
+.header-title {
+    display: flex;
+    color: white;
+    font-family: League;
+    min-height: 400px;
+    font-size: var(--font-xtreme);
+    text-decoration: #C89B3C 10px;
+    text-shadow: -2px -2px 0 #091428, 2px -2px 0 #C89B3C, -2px 2px 0 #091428, 4px 4px 0 #C89B3C;
+    text-align: center;
+}
+
+.log-in {
+    text-decoration: #C89B3C 10px;
+    text-shadow: -2px -2px 0 #091428, 2px -2px 0 #C89B3C, -2px 2px 0 #091428, 4px 4px 0 #C89B3C;
+    text-align: right;
+
+    
+}
+

@@ -1,13 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title>lolTeams</title>
   </head>
   <body>
-    <header>Lets Climb Ranked!</header>
+    <span class='header-title'>
+    <header>Lets Climb Ranked
+      <div class="log-in">
+        {% if user.is_authenticated %}
+        <form id="logout-form" method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit">Log out</button>
+        </form>
+        {% endif %}
+      </div>
+    </header>
+  </span>
     <div>
+
       
         <p>lets put stuff here later like images</p>
         <h2>BASE HTML EXTENDED</h2>
@@ -17,12 +31,7 @@
         <li><a href="{% url 'about'%}"> About Page!</a></li>
         {% endblock content %}
         
-        {% if user.is_authenticated %}
-        <form id="logout-form" method="post" action="{% url 'logout' %}">
-          {% csrf_token %}
-          <button type="submit">Log out</button>
-        </form>
-        {% endif %}
+
           
 
     </div>

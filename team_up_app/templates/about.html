@@ -9,10 +9,6 @@
 <h1>All about!</h1>
 
 
-<ul>
-    <li><a href="{% url 'team-list' %}"> Lets See all teams!</a></li>
-</ul>
-
 {%if not user.is_authenticated %}
 <section>
     <form action="{% url 'about' %}" method="post" class="login">
@@ -25,6 +21,11 @@
     Oh I need to make an account!
    </button></a>
 </section>
+{% else %}
+<ul>
+  <li>Hey! {{user.username}}</li>
+  <li><a href="{% url 'team-list' %}"> Lets See all teams!</a></li>
+</ul>
 {% endif %} 
   
   
