@@ -22,10 +22,10 @@
   </span>
     <div>
 
-      
+      <li><a href="{% url 'about'%}"><button> About Page!</button></a></li>
         {% block content %}
-        <li><a href="{% url 'index'%}"> Lets See all teams!</a></li>
-        <li><a href="{% url 'about'%}"> About Page!</a></li>
+        <li><a href="{% url 'index'%}"> <button>Lets See all teams!</button></a></li>
+        
         {% endblock content %}
         
 

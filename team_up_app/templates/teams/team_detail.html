@@ -2,41 +2,75 @@
 {% load static %}
 
 {% block content %}
-v
-<span class="header-title"
-  <h2>{{ team.name }} Here is your team! </h2>
-</span>
+<div class="soft-title">
+<h2>{{ team.name }} Details</h2>
+</div>
 
 <div class="img-bundle">
-
+  <!-- Dynamically load images for each role -->
   <img src="{% static 'images/champion/' %}{{ team.top }}.png" alt="{{ team.top }}">
   <img src="{% static 'images/champion/' %}{{ team.jungle }}.png" alt="{{ team.jungle }}">
   <img src="{% static 'images/champion/' %}{{ team.mid }}.png" alt="{{ team.mid }}">
   <img src="{% static 'images/champion/' %}{{ team.bot }}.png" alt="{{ team.bot }}">
   <img src="{% static 'images/champion/' %}{{ team.support }}.png" alt="{{ team.support }}">
 </div>
-
-  <div class="positions">
-    <ul>
-      <li>Top Lane: {{ team.top }}</li>
-      <li>Jungle: {{ team.jungle }}</li>
-      <li>Mid Lane: {{ team.mid }}</li>
-      <li>Bot Lane: {{ team.bot }}</li>
-      <li>Support: {{ team.support }}</li>
-    </ul>
-  </div>
-  {% comment %} <div class="modify">
-    {% endcomment %}
-    {% comment %} <a href="{% url 'team-update' team.id %}" class="btn warn">Edit</a> {% endcomment %}
-    {% comment %} <a href="{% url 'toy-delete' team.id %}" class="btn danger">Delete</a> {% endcomment %}
-    {% comment %}
-  </div>
-  {% endcomment %}
-  <a href="{% url 'team-list' %}"><button>Lets See all teams</button></a>
-
-  <a href="{% url 'team-delete' team.id %}"><button>Do you want to delete?</button></a>
+<a href="{% url 'team-delete' team.id %}"><button>Do you want to delete?</button></a>
 
 
 <a href="{% url 'team-update' team.id %}"><button>Do you want to make changes?</button></a>
 
+{% comment %} <a href="{% url 'team-delete' %}"> <button>Delete {{team.name}} </button> </a>
+<a href="{% url 'team-update' %}"> <button>Delete {{team.name}} </button> </a> {% endcomment %}
+
+<div class="positions">
+  <ul>
+    <li>Top Lane: {{ team.top }}</li>
+    <ul class="detail-stuff">
+     <li> {{ top_champion.title }}</li> 
+      <li>Champion Id#: {{ top_champion.key }}</li>
+      <li> Uses: {{ top_champion.tags }}</li>
+      <li>{{ top_champion.blurb }}</li>
+    </ul>
+    <li>Jungle: {{ team.jungle }}</li>
+    <ul class='detail-stuff'>
+      <li> {{ jungle_champion.title }}</li> 
+       <li>Champion Id#: {{ jungle_champion.key }}</li>
+       <li> Uses: {{ jungle_champion.tags }}</li>
+       <li>{{ jungle_champion.blurb }}</li>
+     </ul>
+    <li>Mid Lane: {{ team.mid }}</li>
+    <ul class='detail-stuff'>
+      <li> {{ mid_champion.title }}</li> 
+       <li>Champion Id# :{{ mid_champion.key }}</li>
+       <li> Uses: {{ mid_champion.tags }}</li>
+       <li>{{ mid_champion.blurb }}</li>
+     </ul>
+    <li>Bot Lane: {{ team.bot }}</li>
+    <ul class='detail-stuff'>
+      <li> {{ bot_champion.title }}</li> 
+       <li>Champion Id#: {{ bot_champion.key }}</li>
+       <li> Uses: {{ bot_champion.tags }}</li>
+       <li>{{ bot_champion.blurb }}</li>
+     </ul>
+    <li>Support: {{ team.support }}</li>
+    <ul class='detail-stuff'>
+      <li> {{ support_champion.title }}</li> 
+       <li>Champion Id#:{{ support_champion.key }}</li>
+       <li> Uses: {{ support_champion.tags }}</li>
+       <li>{{ support_champion.blurb }}</li>
+     </ul>
+  </ul>
+</div>
+
+
+<h2><a href="{% url 'team-list' %}"> <button>Lets See all teams!
+</button>
+</a></h2>
+  <h2><a href="{% url 'dictionary' %}">
+    <button>
+    Let me see the dictionary
+  </button>
+  </a></h2>
+
+</div>
 {% endblock %}
