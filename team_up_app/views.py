@@ -52,13 +52,13 @@ def detail(request, team_id):
     team = get_object_or_404(Team, id=team_id)
 
     # Extract specific champion data for each role
-    top_champion = champions.get(team.top)
-    jungle_champion = champions.get(team.jungle)
-    mid_champion = champions.get(team.mid)
-    bot_champion = champions.get(team.bot)
-    support_champion = champions.get(team.support)
+    top_champion = champions.get(team.top.capitalize())
+    jungle_champion = champions.get(team.jungle.capitalize())
+    mid_champion = champions.get(team.mid.capitalize())
+    bot_champion = champions.get(team.bot.capitalize)
+    support_champion = champions.get(team.support.capitalize())
 
-    # Pass everything to the template
+
     context = {
         'team': team,
         'champions': champions,

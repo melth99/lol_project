@@ -6,7 +6,7 @@
 
 <div class=index>
     <div class="page-title">
-<h1>All index! {{user.username}}</h1>
+<h1>Welcome {{user.username}} ! </h1>
 </div>
 
 <div class="img-bundle">
@@ -30,8 +30,9 @@
 <h2>take your pick!</h2>
 {% for team in team_list%}
 <div class="positions">
+    <h4> {{team.name}}</h4>
     <ul>
-        <li> {{team.name}}</li>
+       {% comment %}  <li> {{team.name}}</li> {% endcomment %}
         <li>top lane: {{team.top}}</li>
         <li>jungle: {{team.jungle}}</li>
         <li>mid lane: {{team.mid}}</li>

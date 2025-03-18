@@ -99,7 +99,10 @@ header {
 .detail-stuff{
     padding: 3%;
     font-size: large;
+    padding-top: 1%;
+    font
     font-weight: 50;
+    color:#c89b3c;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
