@@ -1,24 +1,14 @@
-#api stuff here
 import json
 import requests
-from PIL import Image
 
-#ddragon champion
-
-""" what i want:
-    champion Name = "id"
-    chamption #id = "key"
-    image/"full" = "ahri.png"
-    """
-
+# Function to fetch champion data from the URL
 def get_ddragon():
     url = "https://ddragon.leagueoflegends.com/cdn/9.3.1/data/en_US/champion.json"
 
     try:
         response = requests.get(url)
-        print(response.status_code) #200 good
+        print(response.status_code)  # 200 means successful response
 
-  
         if response.status_code == 200:
             champions_data = response.json()
             # Access the champion data
@@ -27,25 +17,29 @@ def get_ddragon():
         else:
             print(f"Failed to retrieve data: Status code {response.status_code}")
             return None
-            
-
     except requests.exceptions.RequestException as e:
         print(f"Error fetching data: {e}")
         return None
 
-get_ddragon()
 
-class Champion():
-    def __init__(self,champion_data):
-        self.id = "champion.id" #name
-        self.key = "champion.key" #id num
-        #self.img = (f"./{self.id}_0.img")
-        self.img = (f"/team_up_app/static/images/champion/{self.id}.png.img")
+# Define Champion class
+class Champion:
+    def __init__(self, champion_data):
+        self.id = champion_data['id']  # Champion name
+        self.key = champion_data['key']  # Champion numeric ID
+        self.img = f"/static/images/champion/{champion_data['image']['full']}"  # Image path
 
-    
     def __str__(self):
-        return f"{self.id, self.key}
-    
-champion_objects = {}
-for champ_id, champ_data in champions.items():
-    champion_objects[champ_id] = Champion(champ_data)
+        return f"Name: {self.id}, ID: {self.key}, Image Path: {self.img}"
+
+
+# Fetch data and create Champion objects
+champion_data = get_ddragon()
+if champion_data:
+    champion_objects = {}
+    for champ_id, champ_info in champion_data.items():
+        champion_objects[champ_id] = Champion(champ_info)
+
+    # Print all champions for verification
+    for champ_id, champ_obj in champion_objects.items():
+        print(champ_obj)
