@@ -1,4 +1,6 @@
 from django.db.models.query import QuerySet
+from django.shortcuts import get_object_or_404
+
 from django.shortcuts import render, redirect
 from .models import Team
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -10,6 +12,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required  # function based views
 from django.contrib.auth.mixins import LoginRequiredMixin  # for CBVS
+from .services import get_ddragon
 
 
 # Import HttpResponse to send text-based responses
@@ -42,8 +45,38 @@ class TeamList(LoginRequiredMixin, ListView):
 
 
 def detail(request, team_id):
-    team = Team.objects.get(id=team_id)
-    return render(request, "teams/team_detail.html", {"team": team})
+    # Fetch champion data
+    champions = get_ddragon()
+    
+    # Get the specific team
+    team = get_object_or_404(Team, id=team_id)
+
+    # Extract specific champion data for each role
+    top_champion = champions.get(team.top)
+    jungle_champion = champions.get(team.jungle)
+    mid_champion = champions.get(team.mid)
+    bot_champion = champions.get(team.bot)
+    support_champion = champions.get(team.support)
+
+    # Pass everything to the template
+    context = {
+        'team': team,
+        'champions': champions,
+        'top_champion': top_champion,
+        'jungle_champion': jungle_champion,
+        'mid_champion': mid_champion,
+        'bot_champion': bot_champion,
+        'support_champion': support_champion,
+    }
+    return render(request, "teams/team_detail.html", context)
+
+def dictionary(request):
+    champions = get_ddragon()  # Fetch champion data from services.py
+
+    context = {
+        'champions': champions,  # Pass champion data to the template
+    }
+    return render(request, "positions.html", context)
 
 
 class TeamCreate(LoginRequiredMixin, CreateView):

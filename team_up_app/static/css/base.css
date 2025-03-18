@@ -89,3 +89,16 @@ header {
     max-width: 100%;
     font-family: League;
 }
+.champion-dictionary {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    justify-content: left;
+}
+.detail-stuff{
+    padding: 3%;
+    font-size: large;
+    font-weight: 50;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

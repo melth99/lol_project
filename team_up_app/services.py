@@ -27,10 +27,13 @@ class Champion:
     def __init__(self, champion_data):
         self.id = champion_data['id']  # Champion name
         self.key = champion_data['key']  # Champion numeric ID
+        self.tags = champion_data['tags']
+        self.title = champion_data['title']
+        self.blurb = champion_data['blurb']
         self.img = f"/static/images/champion/{champion_data['image']['full']}"  # Image path
 
     def __str__(self):
-        return f"Name: {self.id}, ID: {self.key}, Image Path: {self.img}"
+        return f"Name: {self.id}, ID: {self.key}, Image Path: {self.img}, Title: {self.title}, Blurb {self.blurb}, Tags {self.tags}"
 
 
 # Fetch data and create Champion objects

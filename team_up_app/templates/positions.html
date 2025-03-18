@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>  
-  <body>
-    {% block positions %}
-      <div class="postions">
-        <ul>
-          <li>Top Lane: {{ team.top }}</li>
-          <li>Jungle: {{ team.jungle }}</li>
-          <li>Mid Lane: {{ team.mid }}</li>
-          <li>Bot Lane: {{ team.bot }}</li>
-          <li>Support: {{ team.support }}</li>
-        </ul>
-      </div>
-    {% endblock %}
-  </body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  
+
+
+  <div class="make-readable">
+    <div class="champion-dictionary">
+  <h3>Champion Dictionary!:</h3>
+  {% for champ_id, champ_data in champions.items %}
+    <div class="champion-card">
+      <h4>{{ champ_data.id }} ({{ champ_data.title }})</h4>
+      <p><strong>Tags:</strong> {{ champ_data.tags|join:", " }}</p>
+      <p><strong>Description:</strong> {{ champ_data.blurb }}</p>
+      <img src="{% static 'images/champion/' %}{{ champ_data.image.full }}" alt="{{ champ_data.id }}">
+    </div>
+  {% endfor %}
+</div>
+</div>
+
+{% endblock content %}
+  
