@@ -1,9 +1,15 @@
-# LoL Teams
+# :tada: LoL Teams
 ![SplashArt](https://preview.redd.it/league-of-legends-promotional-art-v0-e4wgpkucemia1.jpg?width=1080&crop=smart&auto=webp&s=197c45ef24c405006ce343b9b4a82b132f8ea835)
-LoL Teams is a web-based application
+LoL Teams is a web-based application to plan and League of Legends team compsitions. The application provides detailed insights into all 170+ champions across the five crucial roles: Top, Jungle, Mid, Bot, and Support. My application allows users to research those champions and save their data, to prepare for ranked games. 
 
 
-## ::stuck_out_tongue_winking_eye:: Visit Here 
+# :computer: Core Functionality
+Team Creation: Users can create teams by selecting champions for different roles (top, jungle, mid, bot, support)
+Team Management: Functionality to view, update, and delete teams
+Champion Information: Displays detailed champion data including titles, IDs, ability tags, and lore blurbs
+
+
+## :tada: Visit Here 
 ***add deployment here
 
 ![Blitzcrank](https://github.com/melth99/lol_project/blob/120038b00d68e993eaa36cced2829f29a8909437/team_up_app/static/images/champion/Blitzcrank.png)
