@@ -12,7 +12,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required  # function based views
 from django.contrib.auth.mixins import LoginRequiredMixin  # for CBVS
-from .services import get_ddragon
+from .services import get_ddragon,get_alphabet
 
 
 # Import HttpResponse to send text-based responses
@@ -70,13 +70,18 @@ def detail(request, team_id):
     }
     return render(request, "teams/team_detail.html", context)
 
-def dictionary(request):
+def dictionary(request): 
     champions = get_ddragon()  # Fetch champion data from services.py
+    alphabet = get_alphabet
 
     context = {
         'champions': champions,  # Pass champion data to the template
     }
-    return render(request, "positions.html", context)
+    print(type(champions), 'CHAMPION CHAMPION CHAMPION!!!!!!!!U932R9032R9032R930R283902R83920R839R208390R2839R08')
+    champ_letters = {
+    }
+
+    return render(request, "positions.html", context, alphabet)
 
 
 class TeamCreate(LoginRequiredMixin, CreateView):

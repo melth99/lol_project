@@ -46,3 +46,31 @@ if champion_data:
     # Print all champions for verification
     for champ_id, champ_obj in champion_objects.items():
         print(champ_obj)
+        
+    print(f"{type(champion_data)}QQQQQQQQQQQQQQQQQ")
+    print(champion_data)
+
+    
+    def get_alphabet():
+        alphabet_champ = {}
+        for champ_name, data in champion_data.items():
+            champion_id = champion_data[champ_name]["id"]
+            print(f"{champ_name}'s ID is: {champion_id}")
+            first_letter = champ_name[0]
+            if first_letter not in alphabet_champ:
+                alphabet_champ[first_letter] = [champ_name]
+            else:
+                alphabet_champ[first_letter].append(champ_name)
+        print (alphabet_champ) #already alphabatized because json was alphabetical
+        return alphabet_champ
+    alphabet = get_alphabet()
+            
+"""     for champ,data in champion_data.items():
+        champ_name = data.id
+        print (champ_name)
+        first_letter = data[0].upper()
+        if first_letter not in alphabet_champ:
+            alphabet_champ[first_letter]= [champ]
+        else:
+            alphabet_champ[first_letter].append(champ)
+    print(f"ALPHABETCHAMP {alphabet_champ}") """
