@@ -123,8 +123,12 @@ button {
 .champion-dictionary {
 
 }
-.alphabet-sizebar{
+.alphabet-sidebar{
     display: flex;
-    font-size: var(--font-xtreme);
+    font-size: var(--font-xl);
+}
+.letter-section{
+    display: flex;
+    font-size: var(--font-reg);
 
 }

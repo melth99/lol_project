@@ -10,25 +10,29 @@
   </div>
 
   <div class="champion-dictionary">
+    <div class="header-title"></div>
     <h3>Champion Dictionary!</h3>
+  </div>
     
-    {% for key, champs in alpha_dict.items %}
+   {% comment %}  {% for key, champs in alpha_dict.items %}
       {% if champs %}
-
-        <div id="section-{{ letter }}" class="letter-section">
-          <h2>{{ letter }}</h2>
+        <div id="section-{{ letter }}" class="letter-section"> {% endcomment %}
+         {% comment %}  <h2>{{ key }}</h2> {% endcomment %}
           
-
           {% for champ_id, champ_data in champions.items %}
-          <div class="champion-card">
-          <div id="section-{{ key }}" class="letter-section">
+            <div class="champion-card">
+            (% first_letter = champ_data.id[0] %)
+            {% if first_letter in alphabet %}
+              {%alphabet.replace(first_letter,'')%}
+              <div id="section-{{ first_letter }}" class="letter-section">
+              {% endif %}
             <img src="{% static 'images/champion/' %}{{ champ_data.image.full }}" alt="{{ champ_data.id }}">
-          <h4>{{ champ_data.id }} ({{ champ_data.title }})</h4>
-          <p><strong>Tags:</strong> {{ champ_data.tags|join:", " }}</p>
-          <p><strong>Description:</strong> {{ champ_data.blurb }}</p>
-          
-          </div>
+            <h4>{{ champ_data.id }} ({{ champ_data.title }})</h4>
+            <p><strong>Tags:</strong> {{ champ_data.tags|join:", " }}</p>
+            <p><strong>Description:</strong> {{ champ_data.blurb }}</p>
+            </div>
+            </div>
           {% endfor %}
-        {% endif %}
-    {% endfor %}
+        {% comment %} {% endif %} {% endcomment %}
+  {% comment %}   {% endfor %} {% endcomment %}
 {% endblock content %}
