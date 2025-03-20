@@ -46,11 +46,6 @@ if champion_data:
     # Print all champions for verification
     for champ_id, champ_obj in champion_objects.items():
         print(champ_obj)
-        
-    print(f"{type(champion_data)}QQQQQQQQQQQQQQQQQ")
-    print(champion_data)
-
-    
     def get_alphabet():
         alphabet_champ = {}
         for champ_name, data in champion_data.items():
@@ -63,7 +58,7 @@ if champion_data:
                 alphabet_champ[first_letter].append(champ_name)
         print (alphabet_champ) #already alphabatized because json was alphabetical
         return alphabet_champ
-    alphabet = get_alphabet()
+    alpha_dict = get_alphabet()
             
 """     for champ,data in champion_data.items():
         champ_name = data.id

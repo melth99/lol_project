@@ -72,16 +72,20 @@ def detail(request, team_id):
 
 def dictionary(request): 
     champions = get_ddragon()  # Fetch champion data from services.py
-    alphabet = get_alphabet
+    alpha_dict = get_alphabet
+    alphabet = "abcdefghijkmnopqrstuvwxyz".upper()
 
     context = {
         'champions': champions,  # Pass champion data to the template
+        'alpha_dict': alpha_dict,
+        'alphabet': alphabet
+        
     }
     print(type(champions), 'CHAMPION CHAMPION CHAMPION!!!!!!!!U932R9032R9032R930R283902R83920R839R208390R2839R08')
     champ_letters = {
     }
-
-    return render(request, "positions.html", context, alphabet)
+    
+    return render(request, "positions.html", context)
 
 
 class TeamCreate(LoginRequiredMixin, CreateView):

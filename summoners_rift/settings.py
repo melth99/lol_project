@@ -14,6 +14,12 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 import dj_database_url
+import django
+from django.utils.translation import gettext, gettext_lazy
+
+# Add these lines to provide the removed functions
+django.utils.translation.ugettext = gettext
+django.utils.translation.ugettext_lazy = gettext_lazy
 
 load_dotenv()
 

@@ -1,24 +1,34 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block content %}
-  
+<div class="make-readable">  
+  <div class="alphabet-sidebar">
+    {% for letter in alphabet %}
+      <a href="#section-{{ letter }}">{{ letter }}</a>
+    {% endfor %}
+  </div>
 
+  <div class="champion-dictionary">
+    <h3>Champion Dictionary!</h3>
+    
+    {% for key, champs in alpha_dict.items %}
+      {% if champs %}
 
-  <div class="make-readable">
-    <div class="champion-dictionary">
-  <h3>Champion Dictionary!:</h3>
-  {% for champ_id, champ_data in champions.items %}
-    <div class="champion-card">
-      <h4>{{ champ_data.id }} ({{ champ_data.title }})</h4>
-      <p><strong>Tags:</strong> {{ champ_data.tags|join:", " }}</p>
-      <p><strong>Description:</strong> {{ champ_data.blurb }}</p>
-      <img src="{% static 'images/champion/' %}{{ champ_data.image.full }}" alt="{{ champ_data.id }}">
-    </div>
-  {% endfor %}
-</div>
-</div>
+        <div id="section-{{ letter }}" class="letter-section">
+          <h2>{{ letter }}</h2>
+          
 
+          {% for champ_id, champ_data in champions.items %}
+          <div class="champion-card">
+          <div id="section-{{ key }}" class="letter-section">
+            <img src="{% static 'images/champion/' %}{{ champ_data.image.full }}" alt="{{ champ_data.id }}">
+          <h4>{{ champ_data.id }} ({{ champ_data.title }})</h4>
+          <p><strong>Tags:</strong> {{ champ_data.tags|join:", " }}</p>
+          <p><strong>Description:</strong> {{ champ_data.blurb }}</p>
+          
+          </div>
+          {% endfor %}
+        {% endif %}
+    {% endfor %}
 {% endblock content %}
-  
